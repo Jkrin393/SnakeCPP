@@ -2,8 +2,13 @@
 
 struct Position
 {
-    int x;
-    int y;
+    int m_xvalue;
+    int m_yvalue;
+    
+    bool operator == (const Position second_position) const
+    {
+        return m_xvalue ==second_position.m_xvalue && m_yvalue == second_position.m_yvalue;
+    }
 };
 
 class Snake
@@ -19,10 +24,10 @@ private:
 
 public:
     Snake(Position starting_position); //constructor
-    Position m_getSnakeHead() const; //note to self, const at the end indicates the function doesnt modift the parameters
+    Position m_getSnakeHead() const; //note to self, const at the END indicates the function doesnt modify the parameters
     void m_move(Position new_head);
     void m_grow();
-    bool m_collidedWithSelf() const;
+    bool m_collisionDetected() const;
     void m_printSnake() const;
     int m_getSnakeLength() const;
 };
