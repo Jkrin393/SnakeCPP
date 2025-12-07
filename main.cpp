@@ -1,5 +1,6 @@
 #include <iostream>
 #include "snake_logic.h"
+#include "game_board.h"
 
 using std::endl;
 using std::cout;
@@ -14,9 +15,15 @@ int main()
     Position second_position = {2,2};
     Position third_position = {2,3};
     
-    cout<<(starting_position==second_position)<<endl;
-    cout<<(second_position==third_position)<<endl;
+
+
+    
+   // cout<<(starting_position==second_position)<<endl;
+    //cout<<(second_position==third_position)<<endl;
 
     //snake.m_printSnake();
+    GameBoard board;
+    board.m_print_board();
+
 
 }

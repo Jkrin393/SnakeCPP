@@ -1,15 +1,5 @@
 #pragma once
-
-struct Position
-{
-    int m_xvalue;
-    int m_yvalue;
-    
-    bool operator == (const Position second_position) const
-    {
-        return m_xvalue ==second_position.m_xvalue && m_yvalue == second_position.m_yvalue;
-    }
-};
+#include "game_board.h"
 
 class Snake
 {
@@ -21,14 +11,23 @@ private:
     Position m_snake_body[MAX_LENGTH];
     int m_snake_length;
     bool m_is_growing;
+    enum class Direction 
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    };    
 
 public:
     Snake(Position starting_position); //constructor
     Position m_getSnakeHead() const; //note to self, const at the END indicates the function doesnt modify the parameters
-    void m_move(Position new_head);
+    void m_move(Direction direction);
     void m_grow();
     bool m_collisionDetected() const;
     void m_printSnake() const;
     int m_getSnakeLength() const;
+    //void m_set_head(Position head_pos);
+    //void m_set_tail();
 };
 

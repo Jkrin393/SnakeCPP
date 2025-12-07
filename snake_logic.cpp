@@ -6,7 +6,7 @@ Snake::Snake(Position starting_position)
 {
     m_snake_body[0] = starting_position;
     m_head_location = 0;
-    m_tail_location = 0;
+    m_tail_location = 1;
     m_snake_length = 1;
     m_is_growing = false;
 }
@@ -19,7 +19,6 @@ Position Snake::m_getSnakeHead() const
 int Snake::m_getSnakeLength() const 
 {
     return m_snake_length;
-
 }
 
 void Snake::m_grow()
@@ -37,6 +36,16 @@ void Snake::m_printSnake() const
     }
     
 }
+
+void Snake::m_move(Snake::Direction direction)
+{
+    switch(direction)
+    {
+        //case Direction::Up: Snake::m_
+
+    }
+}
+
 /*
 bool Snake::m_collisionDetected() const
 {
