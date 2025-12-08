@@ -5,8 +5,8 @@
 Snake::Snake(Position starting_position)
 {
     m_snake_body[0] = starting_position;
-    m_head_location = 0;
-    m_tail_location = 1;
+    m_head_location = 0;//represnts position in the snake array
+    m_tail_location = 0;
     m_snake_length = 1;
     m_is_growing = false;
 }
@@ -39,10 +39,15 @@ void Snake::m_printSnake() const
 
 void Snake::m_move(Snake::Direction direction)
 {
-    switch(direction)
-    {
-        //case Direction::Up: Snake::m_
+    Position m_curr_head_location = m_getSnakeHead();
+    Position m_next_head_location = m_curr_head_location;
 
+    switch (direction)
+    {
+    case Direction::Up:    m_next_head_location.m_yvalue--; break;
+    case Direction::Down:  m_next_head_location.m_yvalue++; break;
+    case Direction::Left:  m_next_head_location.m_xvalue--; break;
+    case Direction::Right: m_next_head_location.m_xvalue++; break;
     }
 }
 
