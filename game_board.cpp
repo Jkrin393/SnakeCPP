@@ -1,5 +1,8 @@
 #include "game_board.h"
+#include "snake_logic.h" 
+
 #include <iostream>
+
 
 GameBoard::GameBoard()
 {
@@ -8,6 +11,10 @@ GameBoard::GameBoard()
     empty_row.fill(Celltype::CELL_EMPTY);
     cells.fill(empty_row);
 
+}
+void GameBoard::m_set_cell(Position& cell_position, Celltype cell_type)
+{
+    cells[cell_position.m_xvalue][cell_position.m_yvalue] = cell_type;
 }
 
 void GameBoard::m_print_board()
@@ -21,4 +28,5 @@ void GameBoard::m_print_board()
         }
         std::cout<<std::endl;
     }
+
 }

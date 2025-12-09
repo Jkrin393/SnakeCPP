@@ -49,6 +49,8 @@ void Snake::m_move(Snake::Direction direction)
     case Direction::Left:  m_next_head_location.m_xvalue--; break;
     case Direction::Right: m_next_head_location.m_xvalue++; break;
     }
+    
+    
 }
 
 /*

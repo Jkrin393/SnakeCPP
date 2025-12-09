@@ -29,7 +29,7 @@ class GameBoard
         static const int m_board_cols = 3;
 
         GameBoard();
-        void m_set_cell(Position& set_cell_position, Celltype set_cell_type) const;
+        void m_set_cell(Position& cell_position, Celltype cell_type); //lmao defining as const makes no sense
         Celltype m_get_cell(const Position& position);
         void m_print_board();
     
