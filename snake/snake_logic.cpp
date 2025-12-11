@@ -4,6 +4,19 @@
 #include "snake_logic.h"
 
 Snake::Snake(Position starting_position)
+    :
+    m_head_location(0),
+    m_tail_location(0),
+    m_snake_length(1),
+    m_is_growing(false),
+    m_snake_body{}
+
+{
+    m_snake_body[0] = starting_position;
+
+};
+
+/*Snake::Snake(Position starting_position)
 {
     m_snake_body[0] = starting_position;
     m_head_location = 0;//represnts position in the snake array
@@ -11,6 +24,7 @@ Snake::Snake(Position starting_position)
     m_snake_length = 1;
     m_is_growing = false;
 }
+*/
 
 Position Snake::m_getSnakeHead() const
 {
@@ -70,16 +84,21 @@ void Snake::m_move(Direction direction)
     }
 }
 
-/*
-bool Snake::m_collisionDetected() const
+
+bool Snake::m_selfCollisionDetected() const
 {
+    int curr_snake_index,i;
     Position head = m_getSnakeHead();
-    for(int i = 0; i<m_snake_length; i++)
+    for(i = 0; i<m_snake_length; i++)
     {
-        if (m_head_location==body[i]
+        curr_snake_index = (m_tail_location + 1) % MAX_LENGTH;
+        if(m_snake_body[curr_snake_index]==head)
+        {
+            return true;
+        }
     }
     return false;
 }
-*/
+
 
 

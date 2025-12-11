@@ -17,7 +17,7 @@ struct Position
     int m_xvalue;
     int m_yvalue;
     
-    bool operator == (const Position second_position) const
+    bool operator == (const Position& second_position) const
     {
         return m_xvalue ==second_position.m_xvalue && m_yvalue == second_position.m_yvalue;
     }
