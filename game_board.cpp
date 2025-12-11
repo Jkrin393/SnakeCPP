@@ -6,7 +6,6 @@
 //you FOOL!!!! row = y, col = x  
 GameBoard::GameBoard()
 {
-    //fill() instead of nested loop
     std::array<Celltype, m_board_cols> empty_row;
     empty_row.fill(Celltype::CELL_EMPTY);
     cells.fill(empty_row);

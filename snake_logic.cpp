@@ -1,4 +1,5 @@
 //attempting to use only stack memory with 0 copies and 0 moves, per vid by TheCherno "https://www.youtube.com/watch?v=Xx-NcqmveDc"
+//snake should only know about itself and not anything else on the board
 #include <iostream>
 #include "snake_logic.h"
 
@@ -55,8 +56,8 @@ void Snake::m_move(Direction direction)
     case Direction::Right: m_next_head_location.m_xvalue++; break;
     }
 
-    m_head_location = (m_head_location + 1) % MAX_LENGTH;//place in the array
-    m_snake_body[m_head_location] = m_next_head_location;//placement in the board
+    m_head_location = (m_head_location + 1) % MAX_LENGTH;//place in the circular array
+    m_snake_body[m_head_location] = m_next_head_location;
 
     if(m_is_growing)
     {
