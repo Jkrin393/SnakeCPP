@@ -1,5 +1,6 @@
 #pragma once
-#include "game_board.h"
+#include "shared_types.h"
+
 
 class Snake
 {
@@ -11,17 +12,12 @@ private:
     Position m_snake_body[MAX_LENGTH];
     int m_snake_length;
     bool m_is_growing;
-    enum class Direction 
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    };    
+ 
 
 public:
     Snake(Position starting_position); //constructor
     Position m_getSnakeHead() const; //note to self, const at the END indicates the function doesnt modify the parameters
+    Position m_getSnakeTail() const;
     void m_move(Direction direction);
     void m_grow();
     bool m_collisionDetected() const;

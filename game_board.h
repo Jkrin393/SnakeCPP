@@ -1,26 +1,10 @@
 #pragma once
 #include <array>
+#include "shared_types.h"
 
 //int MAX_ROWS = 3;
 //int MAX_COLS = 3;
 
-enum class Celltype :char 
-{
-    CELL_EMPTY = 'e',
-    CELL_SNAKE = 's',
-    CELL_FOOD = 'f'
-    
-};
-struct Position
-{
-    int m_xvalue;
-    int m_yvalue;
-    
-    bool operator == (const Position second_position) const
-    {
-        return m_xvalue ==second_position.m_xvalue && m_yvalue == second_position.m_yvalue;
-    }
-};
 
 class GameBoard
 {
@@ -29,8 +13,8 @@ class GameBoard
         static const int m_board_cols = 3;
 
         GameBoard();
-        void m_set_cell(Position& cell_position, Celltype cell_type); //lmao defining as const makes no sense
-        Celltype m_get_cell(const Position& position);
+        void m_set_cell(Position& cell_position, Celltype cell_type); 
+        Celltype m_get_cell(const Position& position) const;
         void m_print_board();
     
     private:

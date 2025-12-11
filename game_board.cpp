@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-
+//you FOOL!!!! row = y, col = x  
 GameBoard::GameBoard()
 {
     //fill() instead of nested loop
@@ -14,7 +14,12 @@ GameBoard::GameBoard()
 }
 void GameBoard::m_set_cell(Position& cell_position, Celltype cell_type)
 {
-    cells[cell_position.m_xvalue][cell_position.m_yvalue] = cell_type;
+    cells[cell_position.m_yvalue][cell_position.m_xvalue] = cell_type;
+}
+
+Celltype GameBoard::m_get_cell(const Position& position) const
+{
+    return cells[position.m_yvalue][position.m_xvalue];
 }
 
 void GameBoard::m_print_board()

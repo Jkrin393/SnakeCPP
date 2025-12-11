@@ -15,6 +15,10 @@ Position Snake::m_getSnakeHead() const
 {
     return m_snake_body[m_head_location];
 }
+Position Snake::m_getSnakeTail() const
+{
+    return m_snake_body[m_tail_location];
+}
 
 int Snake::m_getSnakeLength() const 
 {
@@ -37,10 +41,11 @@ void Snake::m_printSnake() const
     
 }
 
-void Snake::m_move(Snake::Direction direction)
+void Snake::m_move(Direction direction)
 {
     Position m_curr_head_location = m_getSnakeHead();
     Position m_next_head_location = m_curr_head_location;
+    Position m_prev_tail_location = m_getSnakeTail();
 
     switch (direction)
     {
@@ -49,8 +54,20 @@ void Snake::m_move(Snake::Direction direction)
     case Direction::Left:  m_next_head_location.m_xvalue--; break;
     case Direction::Right: m_next_head_location.m_xvalue++; break;
     }
-    
-    
+
+    m_head_location = (m_head_location + 1) % MAX_LENGTH;//place in the array
+    m_snake_body[m_head_location] = m_next_head_location;//placement in the board
+
+    if(m_is_growing)
+    {
+
+        ++m_snake_length;
+        m_is_growing = false;
+    }
+    else
+    {
+        m_tail_location = (m_tail_location + 1) % MAX_LENGTH;
+    }
 }
 
 /*

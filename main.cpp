@@ -1,6 +1,7 @@
 #include <iostream>
 #include "snake_logic.h"
 #include "game_board.h"
+#include "shared_types.h"
 
 using std::endl;
 using std::cout;
@@ -12,11 +13,7 @@ int main()
 
     Position starting_position = {1,1};
     Snake snake(starting_position);
-    Position second_position = {2,2};
-    Position third_position = {2,3};
-    
-    
-    
+
 
     
    // cout<<(starting_position==second_position)<<endl;
@@ -25,6 +22,13 @@ int main()
     //snake.m_printSnake();
     GameBoard board;
     board.m_set_cell(starting_position, Celltype::CELL_SNAKE);
+    
+    Position m_curr_head_location = snake.m_getSnakeHead();
+    board.m_print_board();
+    cout<<endl;
+    snake.m_move(Direction::Up);
+    m_curr_head_location = snake.m_getSnakeHead();
+    board.m_set_cell(m_curr_head_location, Celltype::CELL_SNAKE);
     board.m_print_board();
 
 
