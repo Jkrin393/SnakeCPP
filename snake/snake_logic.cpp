@@ -46,8 +46,7 @@ void Snake::m_move(Direction direction)
 {
     Position m_curr_head_location = m_getSnakeHead();
     Position m_next_head_location = m_curr_head_location;
-    Position m_prev_tail_location = m_getSnakeTail();
-
+    
     switch (direction)
     {
     case Direction::Up:    m_next_head_location.m_yvalue--; break;
