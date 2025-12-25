@@ -6,12 +6,16 @@
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-std=c++17",
-                "*.cpp",
+                "-I", "include",
+                "src/snake_logic.cpp",
+                "src/game_board.cpp",
+                "src/game_logic.cpp",
+                "main.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}\\snake_game.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
