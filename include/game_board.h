@@ -1,7 +1,6 @@
 #pragma once
 #include <array>
 #include "shared_types.h"
-
 //int MAX_ROWS = 3;
 //int MAX_COLS = 3;
 
@@ -9,8 +8,8 @@
 class GameBoard
 {
     public:
-        static const int m_board_rows{5}; 
-        static const int m_board_cols{5};
+        static const int m_board_rows{8}; 
+        static const int m_board_cols{8};
 
         GameBoard();
         void m_set_cell(Position& cell_position, Celltype cell_type); 

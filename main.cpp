@@ -20,10 +20,11 @@ void draw(const Snake& snake, GameBoard& board)
     int length{snake.m_getSnakeLength()};
     int head{snake.m_getHeadIndex()};
     int tail{snake.m_getTailIndex()};
-    
+    int snake_max_len = snake.m_getSnakeMaxLength();
+
     for(int i{0};i<length;i++)
     {
-        int curr_index{(tail+i)%9}; //9 = current hardcoded max snake length
+        int curr_index{(tail+i)%snake_max_len};
         Position pos{snake.m_getBodyPosition(curr_index)};
         board.m_set_cell(pos,Celltype::CELL_SNAKE);
     }
@@ -34,22 +35,27 @@ void draw(const Snake& snake, GameBoard& board)
 int main()
 {
     GameBoard board{};
-    Snake snake({1,1});
+    Snake snake({0,0});
     
 
-    cout<<"Starting board"<<endl;
+    cout<<"Starting board \n"<<endl;
     draw(snake, board);
 
     snake.m_move(Direction::Right);
-    cout<<"move right \n"<<endl;
+    cout<<"\n move right \n"<<endl;
     draw(snake, board);
 
     snake.m_grow();
-    cout<<"grow \n"<<endl;
+    snake.m_move();
+    cout<<"\n grow w/ no input \n"<<endl;
     draw(snake, board);
 
-    cout<<"move after grow \n"<<endl;
+    cout<<"\n move right after 1 growth \n"<<endl;
     snake.m_move(Direction::Right);
+    draw(snake, board);
+    
+    cout<<"\n move: no input \n"<<endl;
+    snake.m_move();
     draw(snake, board);
 
     

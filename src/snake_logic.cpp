@@ -9,14 +9,15 @@ Snake::Snake(Position starting_position)
     m_tail_location(0),
     m_snake_length(1),
     m_is_growing(false),
-    m_snake_body{}
+    m_snake_body{},
+    m_current_direction{Direction::Right}
 
 {
     m_snake_body[0] = starting_position;
 
 };
 
-void Snake::set_snake_len(int length)
+void Snake::m_setSnakeLen(int length)
 {
     m_snake_length = length;
 }
@@ -38,6 +39,7 @@ int Snake::m_getSnakeLength() const
 void Snake::m_grow()
 {
     m_is_growing = true;
+    m_snake_length;
 }
 
 void Snake::m_printSnake() const
@@ -53,15 +55,19 @@ void Snake::m_printSnake() const
 
 void Snake::m_move(Direction direction)
 {
+    //if no input detected snake should continue going the previous direction
+    if(direction!=Direction::No_direction)
+        Snake::m_current_direction = direction;
+
     Position m_curr_head_location = m_getSnakeHead();
     Position m_next_head_location = m_curr_head_location;
     
-    switch (direction)
+    switch (Snake::m_current_direction)
     {
-    case Direction::Up:    m_next_head_location.m_yvalue--; break;
-    case Direction::Down:  m_next_head_location.m_yvalue++; break;
-    case Direction::Left:  m_next_head_location.m_xvalue--; break;
-    case Direction::Right: m_next_head_location.m_xvalue++; break;
+    case Direction::Up    :  m_next_head_location.m_yvalue--; break;
+    case Direction::Down  :  m_next_head_location.m_yvalue++; break;
+    case Direction::Left  :  m_next_head_location.m_xvalue--; break;
+    case Direction::Right :  m_next_head_location.m_xvalue++; break;
     }
 
     m_head_location = (m_head_location + 1) % MAX_LENGTH;//place in the circular array
