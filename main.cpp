@@ -54,9 +54,16 @@ int main()
     snake.m_move(Direction::Right);
     draw(snake, board);
     
-    cout<<"\n move: no input \n"<<endl;
-    snake.m_move();
+    cout<<"\n move down 2 times: \n"<<endl;
+    snake.m_move(Direction::Down);
+    snake.m_move(Direction::Down);
     draw(snake, board);
+    
+    cout<<"\n attempt opposite move(up): \n"<<endl;
+    snake.m_move(Direction::Up);
+    draw(snake, board);
+
+
 
     
 

@@ -17,47 +17,22 @@ Snake::Snake(Position starting_position)
 
 };
 
-void Snake::m_setSnakeLen(int length)
+bool Snake::m_isOppositeDirection(Direction a, Direction b)//logic table at bottom of page
 {
-    m_snake_length = length;
+    //should evaluate to false unless the directions are one of these 4 cases
+    return  (a==Direction::Up && b == Direction::Down)    ||
+            (a==Direction::Down && b == Direction::Up)    ||
+            (a==Direction::Left && b == Direction::Right) ||
+            (a==Direction::Right && b == Direction::Left);
 }
 
-Position Snake::m_getSnakeHead() const
-{
-    return m_snake_body[m_head_location];
-}
-Position Snake::m_getSnakeTail() const
-{
-    return m_snake_body[m_tail_location];
-}
 
-int Snake::m_getSnakeLength() const 
-{
-    return m_snake_length;
-}
-
-void Snake::m_grow()
-{
-    m_is_growing = true;
-    m_snake_length;
-}
-
-void Snake::m_printSnake() const
-{
-    
-    for(int i =0; i< m_snake_length; i++)
-    {
-        Position current_position = m_snake_body[i];
-        std::cout<<current_position.m_xvalue << ", " <<current_position.m_yvalue;
-    }
-    
-}
-
-void Snake::m_move(Direction direction)
+void Snake::m_move(Direction input_direction)
 {
     //if no input detected snake should continue going the previous direction
-    if(direction!=Direction::No_direction)
-        Snake::m_current_direction = direction;
+    //if input is detected but it is an opposite direction, snake should continue prevous direction
+    if(input_direction!=Direction::No_direction && !m_isOppositeDirection(input_direction, m_current_direction))
+        Snake::m_current_direction = input_direction;
 
     Position m_curr_head_location = m_getSnakeHead();
     Position m_next_head_location = m_curr_head_location;
@@ -85,7 +60,7 @@ void Snake::m_move(Direction direction)
     }
 }
 
-
+//collision logic
 bool Snake::m_selfCollisionDetected() const
 {
     int curr_snake_index,i;
@@ -101,13 +76,36 @@ bool Snake::m_selfCollisionDetected() const
     return false;
 }
 
-Position Snake::m_getBodyPosition(int index) const
+//testing
+void Snake::m_printSnake() const
 {
-    return m_snake_body[index];
+    
+    for(int i =0; i< m_snake_length; i++)
+    {
+        Position current_position = m_snake_body[i];
+        std::cout<<current_position.m_xvalue << ", " <<current_position.m_yvalue;
+    }
+    
 }
 
-int Snake::m_getHeadIndex() const { return m_head_location; }
-int Snake::m_getTailIndex() const { return m_tail_location; }
+
+
+/*Logic table for isOpposite function
+    &&
+A    |   B   |  isOpposite
+Up   |  Down |  true
+Down |   Up  |  true
+Left | Right |  true
+Right| Left  |  true
+
+Up   | L,R,U |  false
+Down | L,R,D |  false
+Left | U,D,L |  false
+Right| U,D.L |  false
+
+
+
+*/
 
 
 
