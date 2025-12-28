@@ -39,10 +39,10 @@ void Snake::m_move(Direction input_direction)
     
     switch (Snake::m_current_direction)
     {
-    case Direction::Up    :  m_next_head_location.m_yvalue--; break;
-    case Direction::Down  :  m_next_head_location.m_yvalue++; break;
-    case Direction::Left  :  m_next_head_location.m_xvalue--; break;
-    case Direction::Right :  m_next_head_location.m_xvalue++; break;
+    case Direction::Up    :  m_next_head_location.m_yValue--; break;
+    case Direction::Down  :  m_next_head_location.m_yValue++; break;
+    case Direction::Left  :  m_next_head_location.m_xValue--; break;
+    case Direction::Right :  m_next_head_location.m_xValue++; break;
     }
 
     m_head_location = (m_head_location + 1) % MAX_LENGTH;//place in the circular array
@@ -83,7 +83,7 @@ void Snake::m_printSnake() const
     for(int i =0; i< m_snake_length; i++)
     {
         Position current_position = m_snake_body[i];
-        std::cout<<current_position.m_xvalue << ", " <<current_position.m_yvalue;
+        std::cout<<current_position.m_xValue << ", " <<current_position.m_yValue;
     }
     
 }

@@ -14,12 +14,12 @@ enum class Celltype :char
 };
 struct Position
 {
-    int m_xvalue;
-    int m_yvalue;
+    int m_xValue;
+    int m_yValue;
     
     bool operator == (const Position& second_position) const
     {
-        return m_xvalue ==second_position.m_xvalue && m_yvalue == second_position.m_yvalue;
+        return m_xValue ==second_position.m_xValue && m_yValue == second_position.m_yValue;
     }
 };
 enum class Direction 

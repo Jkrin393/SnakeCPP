@@ -8,3 +8,9 @@ GameLogic::GameLogic(Position snake_starting_position)
 {
     //m_spawnFood();
 }
+
+void m_spawnFood()
+{
+    return;
+}
+
