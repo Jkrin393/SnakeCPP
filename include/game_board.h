@@ -1,9 +1,6 @@
 #pragma once
 #include <array>
 #include "shared_types.h"
-//int MAX_ROWS = 3;
-//int MAX_COLS = 3;
-
 
 class GameBoard
 {

@@ -3,6 +3,7 @@
 #include "game_board.h"
 #include "shared_types.h"
 #include "game_logic.h"
+#include "food.h"
 
 using std::endl;
 using std::cout;
@@ -34,6 +35,7 @@ void draw(const Snake& snake, GameBoard& board)
 
 int main()
 {
+    /*
     GameBoard board{};
     Snake snake({0,0});
     
@@ -62,8 +64,14 @@ int main()
     cout<<"\n attempt opposite move(up): \n"<<endl;
     snake.m_move(Direction::Up);
     draw(snake, board);
+    */
 
-
+    Food test_food;
+    for(int i{0};i<5;++i)
+    {
+        test_food.Food::m_spawn_food();
+        test_food.Food::m_print_food();
+    }
 
     
 
