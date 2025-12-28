@@ -9,7 +9,7 @@ GameBoard::GameBoard()
     cells.fill(empty_row);
 
 }
-void GameBoard::m_set_cell(Position& cell_position, Celltype cell_type)
+void GameBoard::m_setCell(Position& cell_position, Celltype cell_type)
 {
     if (cell_position.m_xvalue >= 0 && cell_position.m_xvalue < m_board_cols && cell_position.m_yvalue >= 0 && cell_position.m_yvalue < m_board_rows)
     {
@@ -21,12 +21,12 @@ void GameBoard::m_set_cell(Position& cell_position, Celltype cell_type)
     }
 }
 
-Celltype GameBoard::m_get_cell(const Position& position) const
+Celltype GameBoard::m_getCell(const Position& position) const
 {
     return cells[position.m_yvalue][position.m_xvalue];
 }
 
-void GameBoard::m_print_board() const
+void GameBoard::m_printBoard() const
 {
     
     for(int curr_row = 0;curr_row<m_board_rows;curr_row++)
@@ -39,14 +39,15 @@ void GameBoard::m_print_board() const
     }
 
 }
-void GameBoard::m_clear_board()
+void GameBoard::m_clearBoard()
 {
     for(int y{0}; y<GameBoard::m_board_rows;y++)
     {
         for (int x{0};x<GameBoard::m_board_cols;x++)
         {
             Position p{x,y};
-            m_set_cell(p, Celltype::CELL_EMPTY);
+            m_setCell(p, Celltype::CELL_EMPTY);
         }
     }
 }
+

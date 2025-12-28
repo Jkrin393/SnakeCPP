@@ -8,10 +8,10 @@ class Food
 
     public:
         Food();
-        void m_spawn_food();
-        Position m_get_food_position();
+        void m_spawnFood();
+        Position m_getFoodPosition();
         
         //testing
-        void m_print_food();
+        void m_printFood();
 
 };

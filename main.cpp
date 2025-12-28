@@ -15,7 +15,7 @@ void draw(const Snake& snake, GameBoard& board)
         for (int x{0};x<GameBoard::m_board_cols;x++)
         {
             Position p{x,y};
-            board.m_set_cell(p, Celltype::CELL_EMPTY);
+            board.m_setCell(p, Celltype::CELL_EMPTY);
         }
     }
     int length{snake.m_getSnakeLength()};
@@ -27,10 +27,10 @@ void draw(const Snake& snake, GameBoard& board)
     {
         int curr_index{(tail+i)%snake_max_len};
         Position pos{snake.m_getBodyPosition(curr_index)};
-        board.m_set_cell(pos,Celltype::CELL_SNAKE);
+        board.m_setCell(pos,Celltype::CELL_SNAKE);
     }
 
-    board.m_print_board();
+    board.m_printBoard();
 }
 
 int main()
@@ -69,8 +69,8 @@ int main()
     Food test_food;
     for(int i{0};i<5;++i)
     {
-        test_food.Food::m_spawn_food();
-        test_food.Food::m_print_food();
+        test_food.Food::m_spawnFood();
+        test_food.Food::m_printFood();
     }
 
     

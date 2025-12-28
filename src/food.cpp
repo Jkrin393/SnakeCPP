@@ -20,21 +20,21 @@ Food::Food()
     m_food_location{-1,-1}
 {
 }
-void Food::m_spawn_food()
+void Food::m_spawnFood()
 {
     m_food_location.m_xvalue = distribution(gen_64);
     m_food_location.m_yvalue = distribution(gen_64); 
     //m_food_location{2,2};
 }
 
-Position Food::m_get_food_position()
+Position Food::m_getFoodPosition()
 {
     return m_food_location;
 }
 
-void Food::m_print_food()
+void Food::m_printFood()
 {
-    Position loc{m_get_food_position()};
+    Position loc{m_getFoodPosition()};
     std::cout<<"the food is at, x:" <<loc.m_xvalue<<"y: "<<loc.m_yvalue<<std::endl;
 }
 
