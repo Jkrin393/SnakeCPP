@@ -10,7 +10,6 @@
                 "src/snake_logic.cpp",
                 "src/game_board.cpp",
                 "src/game_logic.cpp",
-                "src/food.cpp",
                 "main.cpp",
                 "-o",
                 "${workspaceFolder}\\snake_game.exe"

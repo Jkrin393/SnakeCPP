@@ -35,11 +35,29 @@ void draw(const Snake& snake, GameBoard& board)
 
 int main()
 {
-    /*
-    GameBoard board{};
-    Snake snake({0,0});
     
+    GameBoard board{};
+    //Snake snake({0,0});
 
+    Position pos1{0,0},pos2{1,0},pos3{2,0};
+    Celltype test{Celltype::CELL_SNAKE};
+    //board.m_setCell(pos1, test);
+    //board.m_setCell(pos2, test);
+    //board.m_setCell(pos2, test);
+    for(int y{0};y<8;++y)
+    {
+        for(int x{0};x<8;++x)
+
+            board.m_setCell(pos1={x,y},test);
+    }
+
+
+    Position test_pos = board.m_getRandomFreePosition();
+
+    cout<<"Random position is- x: " << test_pos.m_xValue<< " y: " <<test_pos.m_yValue<<endl;
+
+    
+    /*
     cout<<"Starting board \n"<<endl;
     draw(snake, board);
 
@@ -66,12 +84,6 @@ int main()
     draw(snake, board);
     */
 
-    Food test_food;
-    for(int i{0};i<5;++i)
-    {
-        test_food.Food::m_spawnFood();
-        test_food.Food::m_printFood();
-    }
 
     
 
